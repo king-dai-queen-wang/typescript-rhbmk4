@@ -3,8 +3,15 @@ import {Toolkit} from './toolkit';
 export class Generator{
   orders;
   matrix;
-  // 入口方法
+
   generate() {
+    while(!this.internalGenerate()){
+      // TODO
+      console.log('try again');
+    }
+  }
+  // 入口方法
+  internalGenerate() {
     // 生成9*9 都为0的矩阵
     this.matrix = Toolkit.matrix.makeMatrix();
     // 随机序列
@@ -13,12 +20,15 @@ export class Generator{
     .map(row => Toolkit.matrix.shuffle(row));
 
     for(let n = 1; n <= 9; n++) {
-      this.fillNumber(n);
+      if(!this.fillNumber(n)){
+        return false;
+      };
     }
+    return true;
   }
 
   fillNumber(n){
-    this.fillRow(n, 0);
+    return this.fillRow(n, 0);
   }
 
   fillRow(n, rowIndex) {
@@ -41,7 +51,7 @@ export class Generator{
       if(!Toolkit.matrix.checkFillable(this.matrix, n, rowIndex, colIndex)){
         continue;
       }
-      
+
       row[colIndex] = n;
 
       // 去找下一行填写n， 如果没填进去则继续当前寻找当前行下一个
