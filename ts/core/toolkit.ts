@@ -32,7 +32,7 @@ export const matrixToolkit =  {
   },
 
   shuffle(array) {
-    const endIndex = array.length - 2;
+    const endIndex = array.length - 1;
     for(let i = 0; i<= endIndex; i++) {
       const key  = i + Math.floor(Math.random() * (array.length - i));
       // let buf = array[i][key];

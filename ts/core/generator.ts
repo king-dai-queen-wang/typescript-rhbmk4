@@ -5,6 +5,7 @@ export class Generator{
   matrix;
   // 入口方法
   generate() {
+    // 生成9*9 都为0的矩阵
     this.matrix = Toolkit.matrix.makeMatrix();
     // 随机序列
     this.orders = Toolkit.matrix.makeMatrix()
@@ -45,7 +46,7 @@ export class Generator{
       row[colIndex] = n;
       this.fillRow(n, rowIndex + 1);
 
-      // 去找下一行填写n， 如果没填进去则继续当前寻找下一个
+      // 去找下一行填写n， 如果没填进去则继续当前寻找当前行下一个
       if(!this.fillRow(n, rowIndex + 1)) {
         row[colIndex] = 0;
         continue;
