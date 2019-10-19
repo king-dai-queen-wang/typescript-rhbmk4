@@ -1,6 +1,7 @@
 // 生成九宫格
 import {Toolkit} from '../core/toolkit';
 import {Generator} from '../core/generator';
+import {Sudoku} from '../core/sudoku';
 const matrix = Toolkit.matrix.makeMatrix();
 
 export class Grid{
@@ -11,9 +12,9 @@ export class Grid{
   }
 
   build() {
-    const generator = new Generator();
-    generator.generate();
-    const matrix = generator.matrix;
+    const sudoku = new Sudoku();
+    sudoku.make();
+    const matrix = sudoku.puzzleMatrix;
     const rowGroupClasses = ['row-g-top', 'row-g-middle', 'row-g-bottom'];
     const colGroupClasses = ['col-g-left', 'col-g-center', 'col-g-right'];
 
@@ -23,6 +24,7 @@ export class Grid{
     const cellEle = matrix.map(rowValues => rowValues.map((cellValue, cellIndex) => {
       const span = document.createElement('span');
       span.innerText = cellValue;
+      cellValue ? span.classList.add('fixed') : span.classList.add('empty');
       span.classList.add(colGroupClasses[cellIndex % 3]);
       return span;
     }));
