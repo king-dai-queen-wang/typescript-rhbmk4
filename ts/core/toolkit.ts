@@ -44,7 +44,7 @@ export const matrixToolkit =  {
   },
 
   /**
-   * 检查是否可以填写n
+   * 检查是否可以填写n，即所处位置在行列宫有没有重复
    */
   checkFillable(matrix, n, rowIndex, colIndex) {
     const row = matrix[rowIndex];

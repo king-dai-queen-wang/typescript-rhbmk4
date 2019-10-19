@@ -22,7 +22,6 @@ export class Generator{
   }
 
   fillRow(n, rowIndex) {
-    // 当前行填写n成功，则递归调用fillnumber 下一行填写n
     if(rowIndex > 8) {
       return true;
     }
@@ -31,7 +30,7 @@ export class Generator{
 
     const order = this.orders[rowIndex];
     // TODO 随机选择列
-    for(let i = 0; i < 9; i++) {
+    for (let i = 0; i < 9; i++) {
       const colIndex = order[i];
       // 若该位置有值则跳过
       if(row[colIndex]){
@@ -42,9 +41,8 @@ export class Generator{
       if(!Toolkit.matrix.checkFillable(this.matrix, n, rowIndex, colIndex)){
         continue;
       }
-
+      
       row[colIndex] = n;
-      this.fillRow(n, rowIndex + 1);
 
       // 去找下一行填写n， 如果没填进去则继续当前寻找当前行下一个
       if(!this.fillRow(n, rowIndex + 1)) {
@@ -54,6 +52,7 @@ export class Generator{
 
       return true;
     }
+    // 填写失败
     return false;
   }
 }
