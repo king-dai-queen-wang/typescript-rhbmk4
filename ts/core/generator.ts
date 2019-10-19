@@ -7,7 +7,7 @@ export class Generator{
   generate() {
     while(!this.internalGenerate()){
       // TODO
-      console.log('try again');
+      console.warn('try again');
     }
   }
   // 入口方法
