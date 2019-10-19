@@ -5,11 +5,10 @@ export class Generator{
   matrix;
 
   generate() {
-    // while(!this.internalGenerate()){
-    //   // TODO
-    //   console.warn('try again');
-    // }
-    this.internalGenerate()
+    while(!this.internalGenerate()){
+      // TODO
+      console.warn('try again');
+    }
   }
   // 入口方法
   internalGenerate() {
@@ -19,7 +18,6 @@ export class Generator{
     this.orders = Toolkit.matrix.makeMatrix()
     .map(row => row.map((v, i) => i))
     .map(row => Toolkit.matrix.shuffle(row));
-
     for(let n = 1; n <= 9; n++) {
       if(!this.fillNumber(n)){
         return false;
