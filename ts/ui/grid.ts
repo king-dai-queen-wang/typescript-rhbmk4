@@ -48,5 +48,12 @@ export class Grid{
     });
 
   }
+
+  bindPopup(popupNumbers){
+    this._$container.getElementsByTagName('span').forEach(span => span.onclick = (event) => {
+      const cell = event.target;
+      popupNumbers.popup(cell);
+    })
+  }
 }
 
