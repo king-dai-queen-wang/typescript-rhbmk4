@@ -9,9 +9,12 @@
 
 .popup-num{
   @extend .container;
-  span{
-    width: $popupCellSize;
-    height: $popupCellSize;
-    line-height: $popupCellSize;
+  .row{
+    span{
+      width: $popupCellSize;
+      height: $popupCellSize;
+      line-height: $popupCellSize;
+    }
   }
+  
 }

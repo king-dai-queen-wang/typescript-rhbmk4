@@ -73,6 +73,13 @@ body {
       border-bottom-width: 0;
       border-right-width: 0;
       background: white;
+
+      &.mark1{
+        background: lightpink;
+      }
+      &.mark2{
+        background: lightgreen;
+      }
       &.empty{
         color: white;
       }
