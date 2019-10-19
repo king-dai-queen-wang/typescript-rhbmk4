@@ -5,10 +5,11 @@ export class Generator{
   matrix;
 
   generate() {
-    while(!this.internalGenerate()){
-      // TODO
-      console.warn('try again');
-    }
+    // while(!this.internalGenerate()){
+    //   // TODO
+    //   console.warn('try again');
+    // }
+    this.internalGenerate()
   }
   // 入口方法
   internalGenerate() {
