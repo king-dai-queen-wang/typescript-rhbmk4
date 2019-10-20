@@ -3,6 +3,7 @@ import {Toolkit} from '../core/toolkit';
 import {Generator} from '../core/generator';
 import {Sudoku} from '../core/sudoku';
 import {Checker} from '../core/checker';
+import {PopupNumbers} from './popupnumber';
 const matrix = Toolkit.matrix.makeMatrix();
 
 export class Grid{
@@ -63,10 +64,11 @@ export class Grid{
   }
 
   rebuild() {
-    debugger
-    this._$container.children = [];
+    this._$container.innerHTML = '';
     this.build();
     this.layout();
+    const popupNumber = new PopupNumbers('#popupNumbers');
+    this.bindPopup(popupNumber);
   }
 
   check() {
