@@ -15,6 +15,7 @@ export class Grid{
   build() {
     const sudoku = new Sudoku();
     sudoku.make();
+    // const matrix = sudoku.solutionMatrix;
     const matrix = sudoku.puzzleMatrix;
     const rowGroupClasses = ['row-g-top', 'row-g-middle', 'row-g-bottom'];
     const colGroupClasses = ['col-g-left', 'col-g-center', 'col-g-right'];
@@ -62,7 +63,8 @@ export class Grid{
   }
 
   rebuild() {
-    this._$container.outerHtml = null;
+    debugger
+    this._$container.children = [];
     this.build();
     this.layout();
   }
@@ -103,7 +105,6 @@ export class Grid{
   }
 
   clear(){
-    debugger
     const spanArray = Array.from(this._$container.getElementsByTagName('span')).filter(span => span.classList.contains('error'));
     spanArray.forEach(span => span.classList.remove('error'));
   }

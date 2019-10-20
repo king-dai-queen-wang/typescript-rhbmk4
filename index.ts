@@ -13,7 +13,9 @@ grid.layout();
 const popupNumber = new PopupNumbers('#popupNumbers');
 grid.bindPopup(popupNumber);
 document.querySelector('#check').onclick = (e) => {
-  grid.check();
+  if(grid.check()){
+    alert('恭喜你，大吉大利');
+  };
 }
 document.querySelector('#reset').onclick = (e) => {
   grid.reset();
