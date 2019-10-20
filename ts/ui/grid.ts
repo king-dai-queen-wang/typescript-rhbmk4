@@ -2,6 +2,7 @@
 import {Toolkit} from '../core/toolkit';
 import {Generator} from '../core/generator';
 import {Sudoku} from '../core/sudoku';
+import {Checker} from '../core/checker';
 const matrix = Toolkit.matrix.makeMatrix();
 
 export class Grid{
@@ -50,12 +51,35 @@ export class Grid{
   }
 
   bindPopup(popupNumbers){
-    debugger
     const spanEles = this._$container.getElementsByTagName('span');
     Array.from(spanEles).forEach(span => span.onclick = (event) => {
       const cell = event.target;
       popupNumbers.popup(cell);
     })
+  }
+
+  rebuild() {
+    this._$container.outerHtml = null;
+    this.build();
+    this.layout();
+  }
+
+  check() {
+    const data = [];
+    const rowsEles = this._$container.getElementsByTagName('div');
+    debugger
+    const marixEle = Array.from(rowsEles).map(row => Array.from(row.getElementsByTagName('span')));
+    const marix = marixEle.map(row => row.map(col => parseInt(col.innerText) || 0 ));
+    console.log(matrix);
+    const checker = new Checker();
+  }
+
+  reset() {
+
+  }
+
+  clear(){
+
   }
 }
 

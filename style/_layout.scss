@@ -116,3 +116,17 @@ body {
     }
   }
 }
+
+.popup-num{
+  @extend .container;
+  padding-left: unset;
+  position: absolute;
+  .row{
+    span{
+      width: $popupCellSize;
+      height: $popupCellSize;
+      line-height: $popupCellSize;
+    }
+  }
+  
+}

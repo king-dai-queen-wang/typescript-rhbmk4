@@ -7,15 +7,3 @@
 
 
 
-.popup-num{
-  @extend .container;
-  position: absolute;
-  .row{
-    span{
-      width: $popupCellSize;
-      height: $popupCellSize;
-      line-height: $popupCellSize;
-    }
-  }
-  
-}

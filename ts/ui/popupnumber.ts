@@ -36,16 +36,20 @@ export class PopupNumbers{
         return;
       }
       // empty 取消数字， 取消mark
-      if(e.target.classList.contains('empty')) {
+      if(e.target.classList.contains('mark3')) {
         // 清除数据和mark
         this._targetCell.innerText = 0;
         this._targetCell.classList.add('empty');
         this.hidde();
         return;
       }
-      this._targetCell.classList.remove('empty');
-      this._targetCell.innerText = e.target.innerText;
-      this.hidde();
+      if(!this._targetCell.classList.contains('fixed')) {
+        this._targetCell.classList.remove('empty');
+        this._targetCell.innerText = e.target.innerText;
+        this.hidde();
+      }
+      
+      
     });
   }
 
@@ -53,8 +57,8 @@ export class PopupNumbers{
     this._targetCell = cell;
     debugger
     const {left, top} = {left: cell.offsetLeft, top: cell.offsetTop};
-    this._panel.style.left = left + 'px';
-    this._panel.style.top = top + 'px';
+    this._panel.style.left = left  - 50+ 'px';
+    this._panel.style.top = top + 53 + 'px';
     this.show();
   }
 

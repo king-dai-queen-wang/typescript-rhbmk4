@@ -12,3 +12,15 @@ grid.build();
 grid.layout();
 const popupNumber = new PopupNumbers('#popupNumbers');
 grid.bindPopup(popupNumber);
+document.querySelector('#check').onclick = (e) => {
+  grid.check();
+}
+document.querySelector('#reset').onclick = (e) => {
+  grid.check();
+}
+document.querySelector('#clear').onclick = (e) => {
+  grid.check();
+}
+document.querySelector('#rebuild').onclick = (e) => {
+  grid.rebuild();
+}
