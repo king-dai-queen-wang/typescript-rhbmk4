@@ -75,7 +75,7 @@ body {
       background: white;
 
       &.mark1{
-        background: lightpink;
+        background: lightblue;
       }
       &.mark2{
         background: lightgreen;
@@ -83,6 +83,14 @@ body {
       &.empty{
         color: white;
       }
+
+      &.error{
+        background: lightpink;
+        &.empty{
+          color: lightpink;
+        }
+      }
+
       &.fixed{
         background: #eee;
       }

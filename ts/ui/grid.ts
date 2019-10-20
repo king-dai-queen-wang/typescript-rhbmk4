@@ -67,16 +67,37 @@ export class Grid{
   check() {
     const data = [];
     const rowsEles = this._$container.getElementsByTagName('div');
-    debugger
     const marixEle = Array.from(rowsEles).map(row => Array.from(row.getElementsByTagName('span')));
-    const marix = marixEle.map(row => row.map(col => parseInt(col.innerText) || 0 ));
-    console.log(matrix);
-    const checker = new Checker(marix);
-    console.log(checker.makeMatrix);
+    data = marixEle.map(row => row.map(col => parseInt(col.innerText) || 0 ));
+    console.log(data);
+    const checker = new Checker(data);
+    if(checker.check()) {
+      return true;
+    }
+    // 检查不成功，进行标记
+    const marks = checker._matrixMarks;
+    marixEle.forEach((rowEle, rowIndex) => {
+      rowEle.forEach((colEle, colIndex) => {
+        if(colEle.classList.contains('fixed') || marks[rowIndex][colIndex]){
+          colEle.classList.remove('error');
+        } else {
+          colEle.classList.add('error');
+        }
+      })
+    })
   }
 
   reset() {
+    debugger
+    const spanArray = Array.from(this._$container.getElementsByTagName('span')).filter(span => !span.classLiest.contains('fixed'));
 
+    spanArray.forEach(span => {
+      span.classList.remove('error');
+      span.classList.remove('mark1');
+      span.classList.remove('mark2');
+      span.innerText = 0;
+      span.classLiest.add('empty');
+    });
   }
 
   clear(){
