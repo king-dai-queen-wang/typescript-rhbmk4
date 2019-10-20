@@ -57,19 +57,20 @@ export class PopupNumbers{
     const {left, top} = {left: cell.offsetLeft, top: cell.offsetTop};
     this._panel.style.left = left  - 50+ 'px';
     this._panel.style.top = top + 53 + 'px';
-    
-    
-
+    this.show();
     if(this._panel.clientWidth < 126) {
       this._panel.style.left = left - 140 + 'px';
+      this.show();
     }
-    this.show();
+    
   }
 
   show(){
     this._panel.classList.remove('hidden');
   }
   hidde(){
+    this._panel.style.left = '';
+    this._panel.style.top = '';
     this._panel.classList.add('hidden');
   }
 
