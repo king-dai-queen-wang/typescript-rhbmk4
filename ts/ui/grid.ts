@@ -50,7 +50,9 @@ export class Grid{
   }
 
   bindPopup(popupNumbers){
-    this._$container.getElementsByTagName('span').forEach(span => span.onclick = (event) => {
+    debugger
+    const spanEles = this._$container.getElementsByTagName('span');
+    Array.from(spanEles).forEach(span => span.onclick = (event) => {
       const cell = event.target;
       popupNumbers.popup(cell);
     })

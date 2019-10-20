@@ -10,5 +10,5 @@ import {checkArray, Checker} from './ts/core/checker';
 const grid = new Grid('#container');
 grid.build();
 grid.layout();
-
 const popupNumber = new PopupNumbers('#popupNumbers');
+grid.bindPopup(popupNumber);
