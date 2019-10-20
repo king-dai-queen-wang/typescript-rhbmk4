@@ -16,9 +16,10 @@ export class PopupNumbers{
           // e.target.classList.add('mark1');
         } else{
           this._targetCell.classList.remove('mark2');
-           this._targetCell.classList.add('mark1');
+          this._targetCell.classList.add('mark1');
         }
         // 回填样式
+        this.hidde();
         return;
       }
 
@@ -31,6 +32,7 @@ export class PopupNumbers{
           this._targetCell.classList.remove('mark1');
           this._targetCell.classList.add('mark2');
         }
+        this.hidde();
         return;
       }
       // empty 取消数字， 取消mark
@@ -38,10 +40,12 @@ export class PopupNumbers{
         // 清除数据和mark
         this._targetCell.innerText = 0;
         this._targetCell.classList.add('empty');
+        this.hidde();
         return;
       }
       this._targetCell.classList.remove('empty');
       this._targetCell.innerText = e.target.innerText;
+      this.hidde();
     });
   }
 
