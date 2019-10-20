@@ -53,12 +53,17 @@ export class PopupNumbers{
   }
 
   popup(cell) {
-    this._targetCell = cell;
     debugger
+    this._targetCell = cell;
     const {left, top} = {left: cell.offsetLeft, top: cell.offsetTop};
     this._panel.style.left = left  - 50+ 'px';
     this._panel.style.top = top + 53 + 'px';
+    
     this.show();
+
+    if(this._panel.clientWidth.width < 126) {
+      this._panel.style.left = left - (126 - this._panel.clientWidth) + 'px';
+    }
   }
 
   show(){
