@@ -71,7 +71,8 @@ export class Grid{
     const marixEle = Array.from(rowsEles).map(row => Array.from(row.getElementsByTagName('span')));
     const marix = marixEle.map(row => row.map(col => parseInt(col.innerText) || 0 ));
     console.log(matrix);
-    const checker = new Checker();
+    const checker = new Checker(marix);
+    console.log(checker.makeMatrix);
   }
 
   reset() {
