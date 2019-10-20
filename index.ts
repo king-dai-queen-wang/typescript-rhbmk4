@@ -16,7 +16,7 @@ document.querySelector('#check').onclick = (e) => {
   grid.check();
 }
 document.querySelector('#reset').onclick = (e) => {
-  grid.check();
+  grid.reset();
 }
 document.querySelector('#clear').onclick = (e) => {
   grid.check();

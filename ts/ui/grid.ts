@@ -89,14 +89,14 @@ export class Grid{
 
   reset() {
     debugger
-    const spanArray = Array.from(this._$container.getElementsByTagName('span')).filter(span => !span.classLiest.contains('fixed'));
+    const spanArray = Array.from(this._$container.getElementsByTagName('span')).filter(span => !span.classList.contains('fixed'));
 
     spanArray.forEach(span => {
       span.classList.remove('error');
       span.classList.remove('mark1');
       span.classList.remove('mark2');
       span.innerText = 0;
-      span.classLiest.add('empty');
+      span.classList.add('empty');
     });
   }
 
