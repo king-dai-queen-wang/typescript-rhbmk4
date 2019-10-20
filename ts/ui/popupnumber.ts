@@ -7,7 +7,6 @@ export class PopupNumbers{
     this._panel = document.querySelector(elementId);
     this.hidde();
     Array.from(this._panel.getElementsByTagName('span')).forEach(span => span.onclick = (e) => {
-      debugger
       // 1-9 ,回填数字
       // mar1，mark2 回填样式
       if(e.target.classList.contains('mark1')) {

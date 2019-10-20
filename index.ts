@@ -19,7 +19,7 @@ document.querySelector('#reset').onclick = (e) => {
   grid.reset();
 }
 document.querySelector('#clear').onclick = (e) => {
-  grid.check();
+  grid.clear();
 }
 document.querySelector('#rebuild').onclick = (e) => {
   grid.rebuild();

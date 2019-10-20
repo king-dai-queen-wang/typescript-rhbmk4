@@ -54,6 +54,9 @@ export class Grid{
     const spanEles = this._$container.getElementsByTagName('span');
     Array.from(spanEles).forEach(span => span.onclick = (event) => {
       const cell = event.target;
+      if(cell.classList.contains('fixed')) {
+        return;
+      }
       popupNumbers.popup(cell);
     })
   }
@@ -88,7 +91,6 @@ export class Grid{
   }
 
   reset() {
-    debugger
     const spanArray = Array.from(this._$container.getElementsByTagName('span')).filter(span => !span.classList.contains('fixed'));
 
     spanArray.forEach(span => {
@@ -101,7 +103,9 @@ export class Grid{
   }
 
   clear(){
-
+    debugger
+    const spanArray = Array.from(this._$container.getElementsByTagName('span')).filter(span => span.classList.contains('error'));
+    spanArray.forEach(span => span.classList.remove('error'));
   }
 }
 
